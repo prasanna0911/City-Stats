@@ -1,0 +1,57 @@
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="container">
+		<div class="converter">
+			<h2>Select a city</h2>
+			<div class="input-box">
+				<select id="input">
+					<option value="Chennai">Chennai</option>
+					<option value="Bengaluru">Bengaluru</option>
+					<option value="Delhi">Delhi</option>
+					<option value="Mumbai">Mumbai</option>
+				</select>
+				<button id="button">Show stats</button>
+			</div>
+		</div>		
+	</div>
+	<script>
+		let button=document.querySelector("button")
+		button.addEventListener("click",displayStats)
+		function displayStats(){
+			let input=document.getElementById("input")
+			let city=input.options[input.selectedIndex].value
+			let population=0,literacyRate=0,language=""
+			let resultdiv=document.createElement("div")
+			resultdiv.id="result"
+			document.getElementById("container").appendChild(resultdiv)
+			switch(city){
+				case "Chennai":
+					population=4646732
+					literacyRate=90.20
+					language="tamil"
+					break
+				case "Bengaluru":
+					population=8443675
+					literacyRate=88.71
+					language="kannada"
+					break
+				case "Delhi":
+					population=16787941
+					literacyRate=86.20
+					language="hindi"
+					break
+				case "Mumbai":
+					population=12442373
+					literacyRate=89.73
+					language="marathi"
+					break
+				}
+			let text=`The Indian city of ${city} has a population of ${population} language spoken is ${language} and the literacy rate is ${literacyRate} %`
+			document.getElementById("result").innerHTML=text
+			}
+	</script>
+</body>
+</html>
